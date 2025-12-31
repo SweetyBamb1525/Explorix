@@ -192,7 +192,7 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 import axios from "axios";
-import API_URL from "../config";
+
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -208,7 +208,7 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      await axios.post(`${API_URL}/contact`, {
+      await axios.post("http://localhost:5000/api/contact", {
         name: formData.name,
         email: formData.email,
         subject: "General Enquiry",
