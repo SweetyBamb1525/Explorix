@@ -366,6 +366,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import API_URL from "../config"; 
 
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
@@ -391,7 +392,7 @@ export default function Reviews() {
 
   const fetchReviews = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/reviews");
+      const res = await axios.get(`${API_URL}/reviews`);
       setReviews(res.data.data);
     } catch (err) {
       console.error("Fetch Reviews Error:", err.response?.data || err.message);
@@ -413,7 +414,7 @@ export default function Reviews() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/reviews",
+        `${API_URL}/reviews`,
         formData
       );
 

@@ -388,9 +388,50 @@
 
 
 
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// const app = express();
+
+// // =====================
+// // MIDDLEWARE
+// // =====================
+// app.use(cors());
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// // =====================
+// // ROUTES
+// // =====================
+// app.use("/api/blogs", require("./routes/blogRoutes"));
+// app.use("/api/leads", require("./routes/leadRoutes"));
+// app.use("/api/contact", require("./routes/contactRoutes"));
+// app.use("/api/reviews", require("./routes/reviewRoutes"));
+
+// // =====================
+// // MONGODB CONNECTION
+// // =====================
+// const PORT = process.env.PORT || 5000;
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("✅ MongoDB Connected Successfully");
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Server running at http://localhost:${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Connection Error:", err.message);
+//     process.exit(1);
+//   });
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const jwt = require("jsonwebtoken"); // Added JWT
 require("dotenv").config();
 
 const app = express();
@@ -403,8 +444,41 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // =====================
+// JWT HELPER FUNCTIONS
+// =====================
+
+// Function to generate a token
+const generateToken = (payload) => {
+  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+};
+
+// Middleware to verify token
+const verifyToken = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).json({ message: "Authorization header missing" });
+  }
+
+  const token = authHeader.split(" ")[1]; // Expecting "Bearer <token>"
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(403).json({ message: "Invalid token" });
+    }
+    req.user = decoded; // Attach decoded data to request
+    next();
+  });
+};
+
+// =====================
 // ROUTES
 // =====================
+// Example of protected route
+app.get("/api/protected", verifyToken, (req, res) => {
+  res.json({ message: "You accessed a protected route!", user: req.user });
+});
+
 app.use("/api/blogs", require("./routes/blogRoutes"));
 app.use("/api/leads", require("./routes/leadRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
@@ -427,3 +501,5 @@ mongoose
     console.error("❌ MongoDB Connection Error:", err.message);
     process.exit(1);
   });
+
+module.exports = { generateToken, verifyToken }; // Export for use in routes

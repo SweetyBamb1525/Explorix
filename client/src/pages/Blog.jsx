@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-const API_URL = "http://localhost:5000/api/blogs";
-
+import API_URL from "../config";
 
 
 
@@ -27,6 +25,7 @@ export default function Blog() {
   };
 
   useEffect(() => {
+    
     window.scrollTo({ top: 0, behavior: "smooth" });
     loadBlogs();
   }, []);
