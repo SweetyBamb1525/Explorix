@@ -31,14 +31,14 @@ export default function Footer() {
 
           {/* SOCIAL ICONS */}
           <div className="flex flex-wrap gap-4 text-2xl">
-            <Social icon={<FaInstagram />} link="https://instagram.com/explorix" />
-            <Social icon={<FaTwitter />} link="https://twitter.com/explorix" />
-            <Social icon={<FaLinkedin />} link="https://linkedin.com/company/explorix" />
+            <Social icon={<FaInstagram />} link="https://www.instagram.com/explorix.01?igsh=MW92ZnNpcTE0NjU2dQ==" />
+            <Social icon={<FaTwitter />} link="https://x.com/Explorix147726" />
+            <Social icon={<FaLinkedin />} link="https://www.linkedin.com/company/explorix-solutions/" />
             <Social icon={<FaGithub />} link="https://github.com/explorix" />
             <Social icon={<FaYoutube />} link="#" />
             <Social icon={<FaFacebook />} link="#" />
-            <Social icon={<FaWhatsapp />} link="https://wa.me/919999999999" />
-            <Social icon={<FaEnvelope />} link="mailto:explorix.tech@gmail.com" />
+            <Social icon={<FaWhatsapp />} link="https://wa.me/917447740744" />
+            <Social icon={<FaEnvelope />} link="https://github.com/explorix01-png" />
           </div>
         </div>
 
