@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+//import API_URL from "../config";
+const API_URL = `${process.env.REACT_APP_API_URL}/api/blogs`;
 
-const API_URL = "http://localhost:5000/api/blogs";
+
+
+//const API_URL = "http://localhost:5000/api/blogs";
 
 
 
