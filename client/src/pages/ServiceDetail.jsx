@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import { useState,  useEffect} from "react";
 import services from "../data/servicesData";
 import { motion } from "framer-motion";
-import axios from "axios";
+// import axios from "axios";
+import API from "../utils/api";
 
 export default function ServiceDetail() {
   const { id } = useParams();
@@ -38,7 +39,8 @@ export default function ServiceDetail() {
     e.preventDefault();
 
     try {
-      await axios.post("/api/leads", formData);
+      // await axios.post("/api/leads", formData);
+      await API.post("/api/leads", formData);
 
       alert(
         "Thank you for connecting with Explorix 🚀\nOur team will contact you shortly."

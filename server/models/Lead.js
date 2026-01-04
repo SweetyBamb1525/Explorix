@@ -187,6 +187,49 @@
 
 
 
+// const mongoose = require("mongoose");
+
+// const leadSchema = new mongoose.Schema(
+//   {
+//     name: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//       minlength: 2,
+//     },
+
+//     email: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//       lowercase: true,
+//     },
+
+//     service: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//     },
+
+//     message: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//       minlength: 5,
+//     },
+
+//     emailSent: {
+//       type: Boolean,
+//       default: false,
+//     },
+//   },
+//   { timestamps: true }
+// );
+
+// module.exports = mongoose.model("Lead", leadSchema);
+
+
+
 const mongoose = require("mongoose");
 
 const leadSchema = new mongoose.Schema(
@@ -197,27 +240,23 @@ const leadSchema = new mongoose.Schema(
       trim: true,
       minlength: 2,
     },
-
     email: {
       type: String,
       required: true,
       trim: true,
       lowercase: true,
     },
-
     service: {
       type: String,
       required: true,
       trim: true,
     },
-
     message: {
       type: String,
       required: true,
       trim: true,
       minlength: 5,
     },
-
     emailSent: {
       type: Boolean,
       default: false,

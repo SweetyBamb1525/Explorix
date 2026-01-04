@@ -277,46 +277,81 @@
 
 
 
+// const express = require("express");
+// const router = express.Router();
+// const Lead = require("../models/Lead");
+
+// // CREATE ENQUIRY
+// router.post("/", async (req, res) => {
+//   try {
+//     console.log("📩 ENQUIRY:", req.body);
+
+//     const { name, email, service, message } = req.body;
+
+//     if (!name || !email || !service || !message) {
+//       return res.status(400).json({
+//         success: false,
+//         message: "All fields are required",
+//       });
+//     }
+
+//     const lead = await Lead.create({
+//       name,
+//       email,
+//       service,
+//       message,
+//     });
+
+//     res.status(201).json({
+//       success: true,
+//       message: "Enquiry submitted successfully",
+//       data: lead,
+//     });
+//   } catch (error) {
+//     console.error("❌ LEAD ERROR:", error);
+//     res.status(500).json({
+//       success: false,
+//       message: "Server error",
+//     });
+//   }
+// });
+
+// // GET ALL ENQUIRIES
+// router.get("/", async (req, res) => {
+//   const leads = await Lead.find().sort({ createdAt: -1 });
+//   res.json({ success: true, data: leads });
+// });
+
+// module.exports = router;
+
+
+
 const express = require("express");
 const router = express.Router();
 const Lead = require("../models/Lead");
 
-// CREATE ENQUIRY
+// CREATE LEAD
 router.post("/", async (req, res) => {
   try {
-    console.log("📩 ENQUIRY:", req.body);
+    console.log("📩 LEAD RECEIVED:", req.body);
 
-    const { name, email, service, message } = req.body;
-
-    if (!name || !email || !service || !message) {
-      return res.status(400).json({
-        success: false,
-        message: "All fields are required",
-      });
-    }
-
-    const lead = await Lead.create({
-      name,
-      email,
-      service,
-      message,
-    });
+    const lead = await Lead.create(req.body);
 
     res.status(201).json({
       success: true,
-      message: "Enquiry submitted successfully",
+      message: "Lead submitted successfully",
       data: lead,
     });
   } catch (error) {
-    console.error("❌ LEAD ERROR:", error);
-    res.status(500).json({
+    console.error("❌ LEAD ERROR:", error.message);
+    res.status(400).json({
       success: false,
-      message: "Server error",
+      message: error.message,
     });
   }
 });
 
-// GET ALL ENQUIRIES
+// GET ALL LEADS
 router.get("/", async (req, res) => {
   const leads = await Lead.find().sort({ createdAt: -1 });
   res.json({ success: true, data: leads });

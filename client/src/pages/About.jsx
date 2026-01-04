@@ -576,8 +576,10 @@ const leadership = [
       "Visionary leader driving Explorix with strategy, innovation, and execution.",
     achievements: [
       "Founded Explorix",
-      "500+ successful projects",
-      "Business & startup strategist",
+      "Strong decision-making under pressure",
+      "Defines company vision, mission & long-term goals",
+      "Confidence with humility",
+      "Accountability & ownership mindset",
     ],
   },
   {
@@ -588,22 +590,13 @@ const leadership = [
       "Leads technical architecture, scalability, and engineering excellence.",
     achievements: [
       "MERN architecture expert",
-      "10+ years experience",
-      "Mentored 100+ developers",
+      "Creative & analytical mindset",
+      "Ensures product scalability, security & performance",
+      "Strong mentoring ability",
+      "Problem-solving & analytical thinking",
     ],
   },
-  {
-    role: "Co-Chief Technology Officer (CO-CTO)",
-    name: "VEDANT METHE",
-    image: "CO-CTO.jpg",
-    about:
-      "Focused on system optimization and technical innovation.",
-    achievements: [
-      "Backend optimization",
-      "Scalable systems",
-      "Engineering leadership",
-    ],
-  },
+  
   {
     role: "Chief Marketing Officer (CMO)",
     name: "SAKSHI JADHAV",
@@ -611,23 +604,14 @@ const leadership = [
     about:
       "Drives brand growth, digital marketing, and outreach strategies.",
     achievements: [
-      "1M+ brand reach",
+      "Market research & customer psychology",
       "Growth marketing expert",
-      "Client acquisition",
+      "Manages customer acquisition & retention",
+      "Aligns marketing with business goals",
+      "Strong content & social media strategy",
     ],
   },
-  {
-    role: "Chief Operating Officer (COO)",
-    name: "PRATISHTHA JAGTAP",
-    image: "COO.jpg",
-    about:
-      "Ensures smooth operations, timelines, and client satisfaction.",
-    achievements: [
-      "Operations expert",
-      "Cross-team management",
-      "98% delivery success",
-    ],
-  },
+  
 ];
 
 /* ===================== DOMAIN LEADERS ===================== */
@@ -635,52 +619,55 @@ const domainLeaders = [
   {
     title: "Web Development",
     leader: "Sweety",
-    description: "Fast, responsive, and SEO-friendly websites.",
+    description: "We design and develop fast, responsive, and SEO-friendly websites using modern technologies. Our focus is on performance, accessibility, and user experience to ensure strong online presence and business growth.",
+    
+
+
   },
   {
     title: "Full Stack Development",
     leader: "Sweety",
-    description: "Complete MERN stack applications.",
+    description: "We build complete end-to-end applications with secure backends and dynamic frontends. From database design to deployment, we deliver scalable solutions using modern full stack technologies..",
   },
   {
     title: "Embedded Systems",
     leader: "Sakshi Jadhav & Anuja Patil",
-    description: "IoT and hardware-based solutions.",
+    description: "We develop hardware-based and IoT solutions that integrate sensors, microcontrollers, and real-time data processing for smart and automated systems.",
   },
   {
     title: "Cyber Security",
     leader: "Anand Sir",
-    description: "Security audits and vulnerability protection.",
+    description: "We provide security audits, vulnerability assessments, and protection strategies to safeguard systems, networks, and applications against cyber threats.",
   },
   {
     title: "Prompt Engineering",
     leader: "Pratishtha Jagtap",
-    description: "Optimized AI & chatbot prompts.",
+    description: "We design optimized prompts for AI models to generate accurate, reliable, and context-aware outputs, improving chatbot intelligence and automation workflows.",
   },
   {
     title: "Data Science",
     leader: "Sahil Pawar",
-    description: "Analytics, ML models, and insights.",
+    description: "We transform raw data into meaningful insights through analytics, machine learning models, and predictive systems to support data-driven decision making.",
   },
   {
     title: "Game Development",
     leader: "Sahil Pawar",
-    description: "Engaging 2D & 3D game development.",
+    description: "We create engaging 2D and 3D games with immersive experiences, focusing on gameplay mechanics, performance, and cross-platform compatibility.",
   },
   {
     title: "App Development",
     leader: "Dhanashri",
-    description: "Android, iOS & cross-platform apps.",
+    description: "We build high-performance mobile applications for Android, iOS, and cross-platform environments with intuitive UI and scalable backend support.",
   },
   {
     title: "Content Writing",
     leader: "Sakshi Jadhav & Pratishtha Jagtap",
-    description: "SEO-friendly blogs & technical content.",
+    description: "We produce high-quality, SEO-optimized content including blogs, technical documentation, and marketing copy to enhance brand visibility and engagement.",
   },
   {
     title: "Reports & PPT",
     leader: "Pratishtha Jagtap & Anuja Patil",
-    description: "Professional reports & presentations.",
+    description: "We produce high-quality, SEO-optimized content including blogs, technical documentation, and marketing copy to enhance brand visibility and engagement.",
   },
 ];
 
@@ -691,7 +678,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className="text-white px-6 md:px-16 pt-36 pb-24">
+    <div className="text-white px-6 md:px-16 pt-40 pb-24">
 
       {/* ABOUT */}
       <motion.section
@@ -704,9 +691,7 @@ export default function About() {
           About Explorix
         </h1>
         <p className="text-gray-300 text-lg leading-relaxed">
-          Explorix is a multi-domain technology startup delivering
-          high-impact digital and hardware solutions with innovation,
-          transparency, and real-world results.
+        Explorix is a multi-domain technology startup that builds scalable, real-world digital and hardware solutions using modern technologies. We focus on quality, innovation, and client-centric development to turn ideas into impactful, future-ready products.
         </p>
       </motion.section>
 
@@ -716,7 +701,9 @@ export default function About() {
           Core Leadership Team
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        {/* <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8"> */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
           {leadership.map((m, i) => (
             <motion.div
               key={i}
@@ -778,9 +765,7 @@ export default function About() {
           Why Explorix?
         </h2>
         <p className="text-gray-300 text-lg">
-          We transform ideas into scalable solutions with trust,
-          creativity, and innovation — delivering measurable impact
-          and future-ready products.
+          Explorix stands out because it brings multiple technology domains together under one trusted platform, offering complete end-to-end solutions rather than isolated services. We focus on solving real-world problems by understanding client needs deeply and transforming ideas into scalable, practical, and future-ready products. At Explorix, quality always comes before quantity—every project is built using modern technologies, clean architecture, strong security practices, and performance-driven design. Our client-centric approach ensures transparency, collaboration, and continuous support throughout the journey, from concept to deployment and beyond. By combining innovation with accountability, Explorix delivers solutions that are not only creative but also reliable and sustainable, making it the right choice for businesses and individuals who seek long-term value, trust, and measurable impact.
         </p>
       </section>
 

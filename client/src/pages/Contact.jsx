@@ -190,8 +190,9 @@ import {
   FaGithub,
   FaEnvelope,
 } from "react-icons/fa";
-import { useState } from "react";
-import axios from "axios";
+import { useState, useEffect} from "react";
+// import axios from "axios";
+import API from "../utils/api";
 
 
 export default function Contact() {
@@ -201,6 +202,12 @@ export default function Contact() {
     message: "",
   });
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+
+
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -208,12 +215,15 @@ export default function Contact() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/contact", {
+      // await axios.post("http://localhost:5000/api/contact", 
+      await API.post("/api/contact", {
         name: formData.name,
         email: formData.email,
         subject: "General Enquiry",
         message: formData.message,
       });
+
+
 
       alert("Thank you for contacting Explorix! We’ll get back to you soon.");
       setFormData({ name: "", email: "", message: "" });

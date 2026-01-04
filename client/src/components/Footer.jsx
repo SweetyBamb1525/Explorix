@@ -34,11 +34,11 @@ export default function Footer() {
             <Social icon={<FaInstagram />} link="https://www.instagram.com/explorix.01?igsh=MW92ZnNpcTE0NjU2dQ==" />
             <Social icon={<FaTwitter />} link="https://x.com/Explorix147726" />
             <Social icon={<FaLinkedin />} link="https://www.linkedin.com/company/explorix-solutions/" />
-            <Social icon={<FaGithub />} link="https://github.com/explorix" />
+            <Social icon={<FaGithub />} link="https://github.com/explorix01-png" />
             <Social icon={<FaYoutube />} link="#" />
             <Social icon={<FaFacebook />} link="#" />
-            <Social icon={<FaWhatsapp />} link="https://wa.me/917447740744" />
-            <Social icon={<FaEnvelope />} link="https://github.com/explorix01-png" />
+            <Social icon={<FaWhatsapp />} link="https://wa.me/919022712347" />
+            <Social icon={<FaEnvelope />} link="explorix.01@gmail.com" />
           </div>
         </div>
 
@@ -81,14 +81,16 @@ export default function Footer() {
 
             <p className="flex items-center gap-3">
               <FaPhoneAlt className="text-purple-400" />
-              +91 99999 99999
+              +91 9022712347
             </p>
 
             <p className="flex items-center gap-3">
-              <FaEnvelope className="text-purple-400" />
-              explorix.tech@gmail.com
-            </p>
-          </div>
+  <FaEnvelope className="text-purple-400" />
+  <p className="flex items-center gap 3">
+    explorix.01@gmail.com
+  </p>
+</p>
+</div>
 
           {/* NEWSLETTER */}
           <div>
@@ -139,200 +141,3 @@ function Social({ icon, link }) {
 
 
 
-// import { FaInstagram, FaLinkedin, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
-
-// export default function Footer() {
-//   return (
-//     <footer className="bg-[#0b0b14] text-gray-300 pt-16 pb-10 mt-24">
-//       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-
-//         {/* BRAND */}
-//         <div>
-//           <h2 className="text-3xl font-extrabold gradient-text mb-4">
-//             Explorix
-//           </h2>
-//           <p className="text-sm leading-relaxed text-gray-400">
-//             Explorix is a multi-domain technology startup delivering
-//             innovative digital and hardware solutions with trust,
-//             creativity, and real-world impact.
-//           </p>
-//         </div>
-
-//         {/* QUICK LINKS */}
-//         <div>
-//           <h3 className="text-lg font-semibold mb-4 text-white">
-//             Quick Links
-//           </h3>
-//           <ul className="space-y-3 text-sm">
-//             <li><a href="/" className="hover:text-purple-400">Home</a></li>
-//             <li><a href="/about" className="hover:text-purple-400">About Us</a></li>
-//             <li><a href="/services" className="hover:text-purple-400">Services</a></li>
-//             <li><a href="/blog" className="hover:text-purple-400">Blog</a></li>
-//             <li><a href="/contact" className="hover:text-purple-400">Contact</a></li>
-//           </ul>
-//         </div>
-
-//         {/* SERVICES */}
-//         <div>
-//           <h3 className="text-lg font-semibold mb-4 text-white">
-//             Our Services
-//           </h3>
-//           <ul className="space-y-3 text-sm">
-//             <li>Web Development</li>
-//             <li>Full Stack Development</li>
-//             <li>UI / UX Design</li>
-//             <li>DevOps & Cloud</li>
-//             <li>Hardware & IoT</li>
-//           </ul>
-//         </div>
-
-//         {/* SOCIAL */}
-//         <div>
-//           <h3 className="text-lg font-semibold mb-4 text-white">
-//             Connect With Us
-//           </h3>
-
-//           <div className="flex gap-4 text-2xl">
-//             <a href="#" className="hover:text-pink-500 transition">
-//               <FaInstagram />
-//             </a>
-//             <a href="#" className="hover:text-blue-500 transition">
-//               <FaLinkedin />
-//             </a>
-//             <a href="#" className="hover:text-gray-400 transition">
-//               <FaGithub />
-//             </a>
-//             <a href="#" className="hover:text-sky-400 transition">
-//               <FaTwitter />
-//             </a>
-//             <a href="#" className="hover:text-red-500 transition">
-//               <FaYoutube />
-//             </a>
-//           </div>
-
-//           <p className="text-sm text-gray-400 mt-6">
-//             Let’s build something amazing together 🚀
-//           </p>
-//         </div>
-
-//       </div>
-//     </footer>
-//   );
-// }
-
-
-
-// import {
-//   FaInstagram,
-//   FaLinkedin,
-//   FaGithub,
-//   FaTwitter,
-//   FaYoutube,
-// } from "react-icons/fa";
-
-// export default function Footer() {
-//   return (
-//     <footer className="bg-[#0b0b14] text-gray-300 pt-16 pb-10 mt-24">
-//       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-
-//         {/* BRAND */}
-//         <div>
-//           <h2 className="text-3xl font-extrabold gradient-text mb-4">
-//             Explorix
-//           </h2>
-//           <p className="text-sm text-gray-400 leading-relaxed">
-//             Explorix is a multi-domain technology startup delivering
-//             innovative digital and hardware solutions with real-world impact.
-//           </p>
-//         </div>
-
-//         {/* QUICK LINKS */}
-//         <div>
-//           <h3 className="text-lg font-semibold mb-4 text-white">
-//             Quick Links
-//           </h3>
-//           <ul className="space-y-3 text-sm">
-//             <li><a href="/" className="hover:text-purple-400">Home</a></li>
-//             <li><a href="/about" className="hover:text-purple-400">About</a></li>
-//             <li><a href="/services" className="hover:text-purple-400">Services</a></li>
-//             <li><a href="/blog" className="hover:text-purple-400">Blog</a></li>
-//             <li><a href="/contact" className="hover:text-purple-400">Contact</a></li>
-//           </ul>
-//         </div>
-
-//         {/* SERVICES */}
-//         <div>
-//           <h3 className="text-lg font-semibold mb-4 text-white">
-//             Services
-//           </h3>
-//           <ul className="space-y-3 text-sm">
-//             <li>Web Development</li>
-//             <li>Full Stack Development</li>
-//             <li>UI / UX Design</li>
-//             <li>DevOps & Cloud</li>
-//             <li>Hardware & IoT</li>
-//           </ul>
-//         </div>
-
-//         {/* SOCIAL LINKS */}
-//         <div>
-//           <h3 className="text-lg font-semibold mb-4 text-white">
-//             Follow Us
-//           </h3>
-
-//           <div className="flex gap-4 text-2xl">
-//             <a
-//               href="https://www.instagram.com/"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="hover:text-pink-500"
-//             >
-//               <FaInstagram />
-//             </a>
-
-//             <a
-//               href="https://www.linkedin.com/"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="hover:text-blue-500"
-//             >
-//               <FaLinkedin />
-//             </a>
-
-//             <a
-//               href="https://github.com/"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="hover:text-gray-400"
-//             >
-//               <FaGithub />
-//             </a>
-
-//             <a
-//               href="https://twitter.com/"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="hover:text-sky-400"
-//             >
-//               <FaTwitter />
-//             </a>
-
-//             <a
-//               href="https://www.youtube.com/"
-//               target="_blank"
-//               rel="noopener noreferrer"
-//               className="hover:text-red-500"
-//             >
-//               <FaYoutube />
-//             </a>
-//           </div>
-
-//           <p className="text-sm text-gray-400 mt-6">
-//             Let’s build something amazing 🚀
-//           </p>
-//         </div>
-
-//       </div>
-//     </footer>
-//   );
-// }

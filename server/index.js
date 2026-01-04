@@ -428,78 +428,396 @@
 //     process.exit(1);
 //   });
 
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// const jwt = require("jsonwebtoken"); // Added JWT
+// require("dotenv").config();
+
+// const app = express();
+
+// // =====================
+// // MIDDLEWARE
+// // =====================
+// // app.use(cors());
+// app.use(
+//   cors({
+//     origin: "*",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
+
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// // =====================
+// // JWT HELPER FUNCTIONS
+// // =====================
+
+// // Function to generate a token
+// const generateToken = (payload) => {
+//   return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
+// };
+
+// // Middleware to verify token
+// const verifyToken = (req, res, next) => {
+//   const authHeader = req.headers.authorization;
+
+//   if (!authHeader) {
+//     return res.status(401).json({ message: "Authorization header missing" });
+//   }
+
+//   const token = authHeader.split(" ")[1]; // Expecting "Bearer <token>"
+
+//   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+//     if (err) {
+//       return res.status(403).json({ message: "Invalid token" });
+//     }
+//     req.user = decoded; // Attach decoded data to request
+//     next();
+//   });
+// };
+
+// // =====================
+// // ROUTES
+// // =====================
+// // Example of protected route
+// app.get("/api/protected", verifyToken, (req, res) => {
+//   res.json({ message: "You accessed a protected route!", user: req.user });
+// });
+
+// app.use("/api/blogs", require("./routes/blogRoutes"));
+// app.use("/api/leads", require("./routes/leadRoutes"));
+// app.use("/api/contact", require("./routes/contactRoutes"));
+// app.use("/api/reviews", require("./routes/reviewRoutes"));
+
+// // =====================
+// // MONGODB CONNECTION
+// // =====================
+// const PORT = process.env.PORT || 5000;
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("✅ MongoDB Connected Successfully");
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Server running at http://localhost:${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Connection Error:", err.message);
+//     process.exit(1);
+//   });
+
+// module.exports = { generateToken, verifyToken }; // Export for use in routes
+
+
+
+
+
+
+
+
+
+
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// const app = express();
+
+// // MIDDLEWARE
+// app.use(cors());
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// // ROUTES
+// app.use("/api/blogs", require("./routes/blogRoutes"));
+
+// // MONGODB CONNECTION
+// const PORT = process.env.PORT || 5000;
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("✅ MongoDB Connected Successfully");
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Server running on port ${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Connection Error:", err.message);
+//     process.exit(1);
+//   });
+
+
+
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// app.use("/api/reviews", require("./routes/reviewRoutes"));
+
+// require("dotenv").config();
+
+
+// const app = express();
+
+// app.use(
+//   cors({
+//     origin: "*", // allow all origins (safe for now)
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// app.use("/api/blogs", require("./routes/blogRoutes"));
+// app.use("/api/reviews", require("./routes/reviewRoutes")); // ✅ VERY IMPORTANT
+
+// // TEST ROUTE
+// app.get("/", (req, res) => {
+//   res.send("Explorix Backend is running 🚀");
+// });
+
+
+// const PORT = process.env.PORT || 5000;
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("✅ MongoDB Connected Successfully");
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Server running on port ${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Connection Error:", err.message);
+//     process.exit(1);
+//   });
+
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// const app = express(); // ✅ MUST BE FIRST
+
+// app.use(
+//   cors({
+//     origin: "*",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
+
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// app.use("/api/blogs", require("./routes/blogRoutes"));
+// app.use("/api/reviews", require("./routes/reviewRoutes"));
+
+// app.get("/", (req, res) => {
+//   res.send("Explorix Backend is running 🚀");
+// });
+
+// const PORT = process.env.PORT || 5000;
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("✅ MongoDB Connected");
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Server running on port ${PORT}`);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Error:", err.message);
+//     process.exit(1);
+//   });
+
+
+// const express = require("express");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// const connectDB = require("./config/db");
+
+// const app = express();
+
+// // ✅ MIDDLEWARE
+// app.use(
+//   cors({
+//     origin: "*",
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// // ✅ ROUTES
+// app.use("/api/blogs", require("./routes/blogRoutes"));
+// app.use("/api/reviews", require("./routes/reviewRoutes"));
+
+// // ✅ HEALTH CHECK
+// app.get("/", (req, res) => {
+//   res.status(200).send("Explorix Backend is running 🚀");
+// });
+
+// // ✅ START SERVER ONLY AFTER DB CONNECTS
+// const PORT = process.env.PORT || 5000;
+
+// const startServer = async () => {
+//   try {
+//     await connectDB(); // 🔥 IMPORTANT
+//     app.listen(PORT, () => {
+//       console.log(`🚀 Server running on port ${PORT}`);
+//     });
+//   } catch (error) {
+//     console.error("❌ Server failed to start:", error.message);
+//     process.exit(1);
+//   }
+// };
+
+// startServer();
+
+
+
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// const app = express();
+
+// app.use(cors({ origin: "*" }));
+// app.use(express.json());
+
+// app.use("/api/reviews", require("./routes/reviewRoutes"));
+// app.use("/api/blogs", require("./routes/blogRoutes"));
+
+// app.get("/", (req, res) => {
+//   res.send("Explorix Backend is running 🚀");
+// });
+
+// const PORT = process.env.PORT || 5000;
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("✅ MongoDB Connected");
+//     app.listen(PORT, () =>
+//       console.log(`🚀 Server running on port ${PORT}`)
+//     );
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Error:", err.message);
+//     process.exit(1);
+//   });
+
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// const app = express();
+
+// app.use(cors({ origin: "*" }));
+// app.use(express.json());
+
+// app.use("/api/reviews", require("./routes/reviewRoutes"));
+
+// app.get("/", (req, res) => {
+//   res.send("Explorix Backend is running 🚀");
+// });
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("✅ MongoDB Connected");
+//     app.listen(process.env.PORT || 5000, () =>
+//       console.log("🚀 Server running")
+//     );
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Error:", err.message);
+//   });
+
+
+
+
+
+
+
+// const express = require("express");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// require("dotenv").config();
+
+// const app = express();
+
+// app.use(cors({ origin: "*" }));
+// app.use(express.json());
+
+// // ✅ ADD THIS LINE
+// //app.use("/api/blogs", require("./routes/blogRoutes"));
+// app.use("/api/blogs", require("./routes/blogRoutes"));
+
+
+// // (optional)
+// app.use("/api/reviews", require("./routes/reviewRoutes"));
+
+// app.get("/", (req, res) => {
+//   res.send("🚀 Explorix Backend Running");
+// });
+
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => {
+//     console.log("✅ MongoDB Atlas Connected");
+//     app.listen(process.env.PORT || 5000, () =>
+//       console.log("🚀 Server running on port 5000")
+//     );
+//   })
+//   .catch((err) => {
+//     console.error("❌ MongoDB Error:", err.message);
+//   });
+
+
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const jwt = require("jsonwebtoken"); // Added JWT
 require("dotenv").config();
 
 const app = express();
 
-// =====================
-// MIDDLEWARE
-// =====================
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// =====================
-// JWT HELPER FUNCTIONS
-// =====================
-
-// Function to generate a token
-const generateToken = (payload) => {
-  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
-};
-
-// Middleware to verify token
-const verifyToken = (req, res, next) => {
-  const authHeader = req.headers.authorization;
-
-  if (!authHeader) {
-    return res.status(401).json({ message: "Authorization header missing" });
-  }
-
-  const token = authHeader.split(" ")[1]; // Expecting "Bearer <token>"
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(403).json({ message: "Invalid token" });
-    }
-    req.user = decoded; // Attach decoded data to request
-    next();
-  });
-};
-
-// =====================
-// ROUTES
-// =====================
-// Example of protected route
-app.get("/api/protected", verifyToken, (req, res) => {
-  res.json({ message: "You accessed a protected route!", user: req.user });
-});
-
+// ✅ IMPORTANT
 app.use("/api/blogs", require("./routes/blogRoutes"));
+app.use("/api/reviews", require("./routes/reviewRoutes"));
 app.use("/api/leads", require("./routes/leadRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
-app.use("/api/reviews", require("./routes/reviewRoutes"));
 
-// =====================
-// MONGODB CONNECTION
-// =====================
-const PORT = process.env.PORT || 5000;
+
+
+app.get("/", (req, res) => {
+  res.send("🚀 Explorix Backend Running");
+});
 
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("✅ MongoDB Connected Successfully");
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running at http://localhost:${PORT}`);
-    });
+    console.log("✅ MongoDB Connected");
+    app.listen(process.env.PORT || 5000, () =>
+      console.log("🚀 Server running on port 5000")
+    );
   })
-  .catch((err) => {
-    console.error("❌ MongoDB Connection Error:", err.message);
-    process.exit(1);
-  });
-
-module.exports = { generateToken, verifyToken }; // Export for use in routes
+  .catch((err) => console.error("Mongo Error ❌", err));

@@ -47,6 +47,65 @@
 
 
 
+// const express = require("express");
+// const router = express.Router();
+// const Contact = require("../models/Contact");
+
+// // POST: Create new contact enquiry
+// router.post("/", async (req, res) => {
+//   try {
+//     const { name, email, service, message } = req.body;
+
+//     if (!name || !email || !message) {
+//       return res.status(400).json({
+//         success: false,
+//         message: "All fields are required",
+//       });
+//     }
+
+//     const contact = await Contact.create({
+//       name,
+//       email,
+//       subject: service || "General Enquiry",
+//       message,
+//     });
+
+//     res.status(201).json({
+//       success: true,
+//       message: "Enquiry submitted successfully",
+//       data: contact,
+//     });
+//   } catch (error) {
+//     console.error("CONTACT ERROR:", error);
+//     res.status(500).json({
+//       success: false,
+//       message: "Server error",
+//     });
+//   }
+// });
+
+// // GET: Fetch all enquiries (for testing / admin)
+// router.get("/", async (req, res) => {
+//   try {
+//     const contacts = await Contact.find().sort({ createdAt: -1 });
+//     res.status(200).json({
+//       success: true,
+//       data: contacts,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: "Server error",
+//     });
+//   }
+// });
+
+// module.exports = router;
+
+
+
+
+
 const express = require("express");
 const router = express.Router();
 const Contact = require("../models/Contact");
@@ -54,7 +113,7 @@ const Contact = require("../models/Contact");
 // POST: Create new contact enquiry
 router.post("/", async (req, res) => {
   try {
-    const { name, email, service, message } = req.body;
+    const { name, email, subject, message } = req.body;
 
     if (!name || !email || !message) {
       return res.status(400).json({
@@ -66,7 +125,7 @@ router.post("/", async (req, res) => {
     const contact = await Contact.create({
       name,
       email,
-      subject: service || "General Enquiry",
+      subject: subject || "General Enquiry",
       message,
     });
 
@@ -76,7 +135,7 @@ router.post("/", async (req, res) => {
       data: contact,
     });
   } catch (error) {
-    console.error("CONTACT ERROR:", error);
+    console.error("CONTACT ERROR:", error.message);
     res.status(500).json({
       success: false,
       message: "Server error",
@@ -84,7 +143,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// GET: Fetch all enquiries (for testing / admin)
+// GET: Fetch all enquiries
 router.get("/", async (req, res) => {
   try {
     const contacts = await Contact.find().sort({ createdAt: -1 });

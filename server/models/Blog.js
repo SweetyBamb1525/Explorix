@@ -28,26 +28,59 @@
 
 // module.exports = mongoose.model("Blog", blogSchema);
 
+// const mongoose = require("mongoose");
+
+// const blogSchema = new mongoose.Schema(
+//   {
+//     title: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//       minlength: 3,
+//     },
+//     content: {
+//       type: String,
+//       required: true,
+//       minlength: 10,
+//     },
+//     author: {
+//       type: String,
+//       required: true,
+//       trim: true,
+//     },
+//   },
+//   { timestamps: true }
+// );
+
+// module.exports = mongoose.model("Blog", blogSchema);
+
+
+
+
+
+
+// const mongoose = require("mongoose");
+
+// const blogSchema = new mongoose.Schema(
+//   {
+//     title: { type: String, required: true, minlength: 3 },
+//     content: { type: String, required: true, minlength: 10 },
+//     author: { type: String, required: true },
+//   },
+//   { timestamps: true }
+// );
+
+// module.exports = mongoose.model("Blog", blogSchema);
+
+
+
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true,
-      trim: true,
-      minlength: 3,
-    },
-    content: {
-      type: String,
-      required: true,
-      minlength: 10,
-    },
-    author: {
-      type: String,
-      required: true,
-      trim: true,
-    },
+    title: { type: String, required: true, minlength: 3 },
+    content: { type: String, required: true, minlength: 10 },
+    author: { type: String, required: true },
   },
   { timestamps: true }
 );

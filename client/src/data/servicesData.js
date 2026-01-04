@@ -498,7 +498,7 @@ const services = [
   {
     id: "web-development",
     title: "Web Development",
-    leader: "Sweety",
+    leader: "Sweety Bamb",
     leaderInfo: "Frontend & Web Specialist",
     description:
       "Web Development focuses on building high-performance, secure, and scalable websites that reflect your brand identity and drive real business results. We ensure modern design, SEO readiness, and fast load times.",
@@ -525,7 +525,7 @@ const services = [
   {
     id: "full-stack-development",
     title: "Full Stack Development",
-    leader: "Sweety",
+    leader: "Sweety Bamb",
     leaderInfo: "MERN Stack Developer | System Architect",
     description:
       "Full Stack Development delivers complete applications by combining frontend, backend, database, and deployment. We build scalable systems with secure APIs and efficient data flow.",

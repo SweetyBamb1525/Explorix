@@ -92,7 +92,7 @@ To empower businesses and individuals by providing innovative solutions that ins
       <section id="reviews" className="py-40 text-center bg-black/40">
         <h2 className="text-4xl font-bold">Client Trust</h2>
         <p className="mt-6 text-2xl">
-          ⭐ 4.3 Rating • 🚀 500+ Projects Completed
+          ⭐ 4.3 Rating • 🚀 50+ Projects Completed
         </p>
         <button
           onClick={() => navigate("/reviews")}
